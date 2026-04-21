@@ -1,4 +1,4 @@
-# Port-Status-Monitoring-Tool — Prema P Kotur
+# Port-Status-Monitoring-Tool — Prema P Kotur PES1UG24CS343
 # SDN Learning Switch with Access Control
 ### Computer Networks Project — Mininet + Ryu (OpenFlow 1.3)
 
@@ -30,7 +30,6 @@ It demonstrates two scenarios:
 ├── ryu_app.py          # Ryu controller — L2 switch + ACL + port monitoring + REST API
 ├── mininet_topo.py     # Mininet topology script (1 switch, 3 hosts)
 ├── port_dashboard.html # Live web dashboard (polls REST API every 3 s)
-├── screenshots/        # 📸 Place all proof-of-execution screenshots here
 └── README.md           # This file
 ```
 
@@ -64,9 +63,12 @@ You should see:
 ```
 loading app ryu_app.py
 instantiating app ryu_app.py of L2LearningSwitch
+```
 
-<img width="940" height="474" alt="image" src="https://github.com/user-attachments/assets/5377b6c6-d7a1-4894-8aae-08d857a8dea6" />
+> 📸 **Screenshot 1** 
+<img width="940" height="474" alt="image" src="https://github.com/user-attachments/assets/ff0325f2-297a-411b-b22e-eb03634629ec" />
 
+---
 
 ### Step 2 — Launch the Mininet Topology
 
@@ -84,7 +86,8 @@ h3 (10.0.0.3) ──┘
 (port 3 is ACL-blocked in ryu_app.py via BLOCKED_PORT = 3)
 ```
 
-> 📸 **Screenshot 2** — Take a screenshot of Terminal 2 showing the Mininet CLI prompt after the topology starts. Save as `screenshots/02_mininet_start.png`
+> 📸 **Screenshot 2** 
+<img width="940" height="568" alt="image" src="https://github.com/user-attachments/assets/0813d40b-7ef9-4173-b0d8-7a5edbe26ce1" />
 
 ---
 
@@ -105,7 +108,8 @@ The dashboard auto-polls `http://localhost:8080/status` every 3 seconds and show
 - **Port event log** — timestamped list of every UP/DOWN/ADD/MODIFY event
 - **MAC learning table** — live view of which MAC was learned on which port
 
-> 📸 **Screenshot 3** — Take a screenshot of the dashboard in your browser after the topology connects (you should see ports appearing). Save as `screenshots/03_dashboard_initial.png`
+> 📸 **Screenshot 3**
+<img width="940" height="434" alt="image" src="https://github.com/user-attachments/assets/9854038d-1409-4220-960c-c4e7c69c48e7" />
 
 You can also query the REST API directly from a terminal:
 
@@ -120,7 +124,8 @@ curl http://localhost:8080/status/ports | python3 -m json.tool
 curl http://localhost:8080/status/events | python3 -m json.tool
 ```
 
-> 📸 **Screenshot 4** — Take a screenshot of the `curl` output showing JSON data. Save as `screenshots/04_rest_api_output.png`
+> 📸 **Screenshot 4** 
+<img width="940" height="218" alt="image" src="https://github.com/user-attachments/assets/dbe4b139-4ed2-49f3-b2d4-2dc4b0d2c27d" />
 
 ---
 
@@ -152,9 +157,8 @@ mininet> iperf h1 h2
 mininet> pingall
 ```
 
-> 📸 **Screenshot 5** — Take a screenshot showing `h1 ping h2` passing (0% packet loss). Save as `screenshots/05_scenario_a_ping.png`
-
-> 📸 **Screenshot 6** — Take a screenshot of the `iperf h1 h2` output. Save as `screenshots/06_scenario_a_iperf.png`
+> 📸 **Screenshot 5 and 6** 
+<img width="940" height="347" alt="image" src="https://github.com/user-attachments/assets/2191068a-58e8-4119-8141-1d832e2bbec3" />
 
 ---
 
@@ -177,7 +181,8 @@ The controller logs in Terminal 1 will show:
 [ACL-DROP] dpid=0000000000000001  in_port=3  src=00:00:00:00:00:03  dst=00:00:00:00:00:01
 ```
 
-> 📸 **Screenshot 7** — Take a screenshot showing `h3 ping h1` failing (100% packet loss) alongside the `[ACL-DROP]` log in Terminal 1. Save as `screenshots/07_scenario_b_acl_drop.png`
+> 📸 **Screenshot 7** 
+<img width="940" height="197" alt="image" src="https://github.com/user-attachments/assets/2b1ff97a-fdce-4818-8cba-680e2b92fc7c" />
 
 ---
 
@@ -202,11 +207,14 @@ mininet> link s1 h3 up
 
 The dashboard port card returns to its normal state, and a new UP event appears in the log.
 
-> 📸 **Screenshot 8** — Take a screenshot of Terminal 1 showing the `[PORT EVENT]` and `[ALERT]` log lines after `link s1 h3 down`. Save as `screenshots/08_port_down_log.png`
+> 📸 **Screenshot 8** 
+<img width="940" height="143" alt="image" src="https://github.com/user-attachments/assets/64994b22-6ac8-4305-a43a-406757375189" />
 
-> 📸 **Screenshot 9** — Take a screenshot of the **dashboard** showing the port 3 card in red (DOWN state) and the event log entry. Save as `screenshots/09_dashboard_port_down.png`
+> 📸 **Screenshot 9**
+<img width="940" height="340" alt="image" src="https://github.com/user-attachments/assets/87a3dbdf-b175-43ba-8c84-6730a8e704a5" />
 
-> 📸 **Screenshot 10** — Take a screenshot of the dashboard after `link s1 h3 up`, showing the port card returning to green and both DOWN and UP entries in the event log. Save as `screenshots/10_dashboard_port_up.png`
+> 📸 **Screenshot 10** 
+<img width="940" height="323" alt="image" src="https://github.com/user-attachments/assets/2d208086-8d36-4251-9d85-4fada55a7eb6" />
 
 ---
 
@@ -229,7 +237,8 @@ After `h3 ping h1` you will see the ACL drop rule:
 cookie=0x0, ...priority=10,in_port=3 actions=drop
 ```
 
-> 📸 **Screenshot 11** — Take a screenshot of the `dump-flows` output after running both scenarios. Save as `screenshots/11_flow_table.png`
+> 📸 **Screenshot 11** 
+<img width="940" height="73" alt="image" src="https://github.com/user-attachments/assets/363f7745-f5c6-4cf8-8f74-16ee0cebcb09" />
 
 ---
 
@@ -329,30 +338,11 @@ sudo wireshark
 # Then run: h1 ping h2 -c 4 in Mininet CLI
 ```
 
-> 📸 **Screenshot 12** *(optional but impressive)* — Capture Wireshark showing ICMP echo request/reply between h1 and h2 on s1-eth1. Save as `screenshots/12_wireshark_icmp.png`
+> 📸 **Screenshot 12** 
+<img width="940" height="436" alt="image" src="https://github.com/user-attachments/assets/0c8597d5-e5ea-4f85-b0b0-142eed83d629" />
 
 ---
 
-## Screenshots Summary
-
-Place all screenshots in the `screenshots/` folder. Here is the full list for quick reference:
-
-| # | Filename | What to capture |
-|---|----------|----------------|
-| 1 | `01_controller_start.png` | Ryu controller startup in Terminal 1 |
-| 2 | `02_mininet_start.png` | Mininet CLI prompt after topology start |
-| 3 | `03_dashboard_initial.png` | Dashboard in browser — ports visible after connect |
-| 4 | `04_rest_api_output.png` | `curl /status` JSON output in terminal |
-| 5 | `05_scenario_a_ping.png` | `h1 ping h2` — 0% packet loss |
-| 6 | `06_scenario_a_iperf.png` | `iperf h1 h2` throughput result |
-| 7 | `07_scenario_b_acl_drop.png` | `h3 ping h1` 100% loss + ACL-DROP log |
-| 8 | `08_port_down_log.png` | Terminal 1 — PORT EVENT + ALERT after `link s1 h3 down` |
-| 9 | `09_dashboard_port_down.png` | Dashboard — port 3 card red + DOWN event in log |
-| 10 | `10_dashboard_port_up.png` | Dashboard — port 3 card green + both events in log |
-| 11 | `11_flow_table.png` | `ovs-ofctl dump-flows s1` after both scenarios |
-| 12 | `12_wireshark_icmp.png` | *(optional)* Wireshark ICMP capture |
-
----
 
 ## Cleanup
 
