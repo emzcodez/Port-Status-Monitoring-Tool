@@ -64,11 +64,7 @@ You should see:
 ```
 loading app ryu_app.py
 instantiating app ryu_app.py of L2LearningSwitch
-```
 
-> 📸 **Screenshot 1** — Take a screenshot of Terminal 1 showing the controller startup output. Save as `screenshots/01_controller_start.png`
-
----
 <img width="940" height="474" alt="image" src="https://github.com/user-attachments/assets/5377b6c6-d7a1-4894-8aae-08d857a8dea6" />
 
 
